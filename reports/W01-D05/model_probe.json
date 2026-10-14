@@ -1,0 +1,246 @@
+{
+  "status": "passed",
+  "purpose": "one-step compatibility probe; no quality claim",
+  "executed_at_utc": "2026-10-14T14:37:39.499006+00:00",
+  "checkpoint": {
+    "model_id": "AutonLab/MOMENT-1-small",
+    "revision": "411e288267f82cce86296dbe4d6c8bc533cc162f",
+    "weights_sha256": "785e6c6f57ffa7cac7e2a1fff6369618d49f2f441563ddea76c866231e5aa877",
+    "config_sha256": "6456b8e6f017323e8ef372c338c993380e246cb6291ffb8ca21fe7dfc53d0a6f",
+    "config": {
+      "task_name": "reconstruction",
+      "model_name": "MOMENT",
+      "transformer_type": "encoder_only",
+      "d_model": null,
+      "seq_len": 512,
+      "patch_len": 8,
+      "patch_stride_len": 8,
+      "device": "cpu",
+      "transformer_backbone": "google/flan-t5-small",
+      "model_kwargs": {},
+      "t5_config": {
+        "architectures": [
+          "T5ForConditionalGeneration"
+        ],
+        "d_ff": 1024,
+        "d_kv": 64,
+        "d_model": 512,
+        "decoder_start_token_id": 0,
+        "dropout_rate": 0.1,
+        "eos_token_id": 1,
+        "feed_forward_proj": "gated-gelu",
+        "initializer_factor": 1.0,
+        "is_encoder_decoder": true,
+        "layer_norm_epsilon": 1e-06,
+        "model_type": "t5",
+        "n_positions": 512,
+        "num_decoder_layers": 8,
+        "num_heads": 6,
+        "num_layers": 8,
+        "output_past": true,
+        "pad_token_id": 0,
+        "relative_attention_max_distance": 128,
+        "relative_attention_num_buckets": 32,
+        "tie_word_embeddings": false,
+        "use_cache": true,
+        "vocab_size": 32128
+      }
+    }
+  },
+  "moment_source_revision": "38f7310ad594100747ca2a8357e9c7ca7d323e0e",
+  "probe_code_sha256": "c92ac2ca4cfe7e9babdc5f52133067bc295e168c6ca3988adc4085f8c0119eb0",
+  "probe_config_sha256": "bcd1493fcf07388ed520c1d5472264bdadb3b3e4221d0e2ed6a671e8a48d3cef",
+  "wrapper_code_sha256": "60f6b79b8328b318c77d62c218e1580cff3dce66ee102090b4568296677e8c17",
+  "packages": {
+    "torch": "2.8.0+cu128",
+    "momentfm": "0.1.5",
+    "peft": "0.17.1",
+    "transformers": "4.55.4",
+    "numpy": "2.5.4",
+    "huggingface-hub": "0.36.2"
+  },
+  "python_version": "3.12.13",
+  "device": "cuda",
+  "gpu_name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "cuda_runtime": "12.8",
+  "input": {
+    "shape": [
+      1,
+      12,
+      512
+    ],
+    "ecg_id": 1,
+    "patient_id": 15709,
+    "split": "train",
+    "strat_fold": 3,
+    "start_sample": 0,
+    "end_sample": 512,
+    "source_npz_sha256": "db8e0038b4a12dd4fde1386db143fcc4d371a2f1c5a49e5697a55c2cd7d712f6",
+    "label_order": [
+      "NORM",
+      "MI",
+      "STTC",
+      "CD",
+      "HYP"
+    ]
+  },
+  "context_samples": 512,
+  "internal_patch_samples": 8,
+  "internal_patch_count": 64,
+  "targets": [
+    "moment.encoder.block.0.layer.0.SelfAttention.q",
+    "moment.encoder.block.0.layer.0.SelfAttention.v",
+    "moment.encoder.block.1.layer.0.SelfAttention.q",
+    "moment.encoder.block.1.layer.0.SelfAttention.v",
+    "moment.encoder.block.2.layer.0.SelfAttention.q",
+    "moment.encoder.block.2.layer.0.SelfAttention.v",
+    "moment.encoder.block.3.layer.0.SelfAttention.q",
+    "moment.encoder.block.3.layer.0.SelfAttention.v",
+    "moment.encoder.block.4.layer.0.SelfAttention.q",
+    "moment.encoder.block.4.layer.0.SelfAttention.v",
+    "moment.encoder.block.5.layer.0.SelfAttention.q",
+    "moment.encoder.block.5.layer.0.SelfAttention.v",
+    "moment.encoder.block.6.layer.0.SelfAttention.q",
+    "moment.encoder.block.6.layer.0.SelfAttention.v",
+    "moment.encoder.block.7.layer.0.SelfAttention.q",
+    "moment.encoder.block.7.layer.0.SelfAttention.v"
+  ],
+  "lora": {
+    "rank": 4,
+    "alpha": 8,
+    "modules_to_save": [
+      "moment.head"
+    ]
+  },
+  "parameter_counts": {
+    "lora": 57344,
+    "head": 30725,
+    "frozen": 35368133
+  },
+  "changed_parameter_tensors": {
+    "lora": 16,
+    "head": 2,
+    "frozen": 0
+  },
+  "group_hashes_before": {
+    "lora": "80ed4e4df0eafaab6de8bb60b71092ad9efd1d4bbce801f5c9c2ee62c27d6a39",
+    "head": "38e54755ecde34fa3af61641a80be4edfb497a16bd1f5613eb55ee92f391f006",
+    "frozen": "078f9f73a9d02e916dcaaba8947254887f0d7f7d8aded078fcfc21190d752c1f"
+  },
+  "group_hashes_after": {
+    "lora": "c52ec189941b26755963d8c6ffad86547437ed1f92be78430c9a050248536be1",
+    "head": "bbc375bbfc7f24479540fde18d0329b6adad80616e0dffd22c71e334b804b659",
+    "frozen": "078f9f73a9d02e916dcaaba8947254887f0d7f7d8aded078fcfc21190d752c1f"
+  },
+  "trainable_parameter_names": [
+    "base_model.model.moment.encoder.block.0.layer.0.SelfAttention.q.lora_A.default.weight",
+    "base_model.model.moment.encoder.block.0.layer.0.SelfAttention.q.lora_B.default.weight",
+    "base_model.model.moment.encoder.block.0.layer.0.SelfAttention.v.lora_A.default.weight",
+    "base_model.model.moment.encoder.block.0.layer.0.SelfAttention.v.lora_B.default.weight",
+    "base_model.model.moment.encoder.block.1.layer.0.SelfAttention.q.lora_A.default.weight",
+    "base_model.model.moment.encoder.block.1.layer.0.SelfAttention.q.lora_B.default.weight",
+    "base_model.model.moment.encoder.block.1.layer.0.SelfAttention.v.lora_A.default.weight",
+    "base_model.model.moment.encoder.block.1.layer.0.SelfAttention.v.lora_B.default.weight",
+    "base_model.model.moment.encoder.block.2.layer.0.SelfAttention.q.lora_A.default.weight",
+    "base_model.model.moment.encoder.block.2.layer.0.SelfAttention.q.lora_B.default.weight",
+    "base_model.model.moment.encoder.block.2.layer.0.SelfAttention.v.lora_A.default.weight",
+    "base_model.model.moment.encoder.block.2.layer.0.SelfAttention.v.lora_B.default.weight",
+    "base_model.model.moment.encoder.block.3.layer.0.SelfAttention.q.lora_A.default.weight",
+    "base_model.model.moment.encoder.block.3.layer.0.SelfAttention.q.lora_B.default.weight",
+    "base_model.model.moment.encoder.block.3.layer.0.SelfAttention.v.lora_A.default.weight",
+    "base_model.model.moment.encoder.block.3.layer.0.SelfAttention.v.lora_B.default.weight",
+    "base_model.model.moment.encoder.block.4.layer.0.SelfAttention.q.lora_A.default.weight",
+    "base_model.model.moment.encoder.block.4.layer.0.SelfAttention.q.lora_B.default.weight",
+    "base_model.model.moment.encoder.block.4.layer.0.SelfAttention.v.lora_A.default.weight",
+    "base_model.model.moment.encoder.block.4.layer.0.SelfAttention.v.lora_B.default.weight",
+    "base_model.model.moment.encoder.block.5.layer.0.SelfAttention.q.lora_A.default.weight",
+    "base_model.model.moment.encoder.block.5.layer.0.SelfAttention.q.lora_B.default.weight",
+    "base_model.model.moment.encoder.block.5.layer.0.SelfAttention.v.lora_A.default.weight",
+    "base_model.model.moment.encoder.block.5.layer.0.SelfAttention.v.lora_B.default.weight",
+    "base_model.model.moment.encoder.block.6.layer.0.SelfAttention.q.lora_A.default.weight",
+    "base_model.model.moment.encoder.block.6.layer.0.SelfAttention.q.lora_B.default.weight",
+    "base_model.model.moment.encoder.block.6.layer.0.SelfAttention.v.lora_A.default.weight",
+    "base_model.model.moment.encoder.block.6.layer.0.SelfAttention.v.lora_B.default.weight",
+    "base_model.model.moment.encoder.block.7.layer.0.SelfAttention.q.lora_A.default.weight",
+    "base_model.model.moment.encoder.block.7.layer.0.SelfAttention.q.lora_B.default.weight",
+    "base_model.model.moment.encoder.block.7.layer.0.SelfAttention.v.lora_A.default.weight",
+    "base_model.model.moment.encoder.block.7.layer.0.SelfAttention.v.lora_B.default.weight",
+    "base_model.model.moment.head.modules_to_save.default.linear.weight",
+    "base_model.model.moment.head.modules_to_save.default.linear.bias"
+  ],
+  "gradient_norms": {
+    "base_model.model.moment.encoder.block.0.layer.0.SelfAttention.q.lora_A.default.weight": 0.0,
+    "base_model.model.moment.encoder.block.0.layer.0.SelfAttention.q.lora_B.default.weight": 0.0034971798304468393,
+    "base_model.model.moment.encoder.block.0.layer.0.SelfAttention.v.lora_A.default.weight": 0.0,
+    "base_model.model.moment.encoder.block.0.layer.0.SelfAttention.v.lora_B.default.weight": 0.005433592479676008,
+    "base_model.model.moment.encoder.block.1.layer.0.SelfAttention.q.lora_A.default.weight": 0.0,
+    "base_model.model.moment.encoder.block.1.layer.0.SelfAttention.q.lora_B.default.weight": 0.0022369814105331898,
+    "base_model.model.moment.encoder.block.1.layer.0.SelfAttention.v.lora_A.default.weight": 0.0,
+    "base_model.model.moment.encoder.block.1.layer.0.SelfAttention.v.lora_B.default.weight": 0.005625264719128609,
+    "base_model.model.moment.encoder.block.2.layer.0.SelfAttention.q.lora_A.default.weight": 0.0,
+    "base_model.model.moment.encoder.block.2.layer.0.SelfAttention.q.lora_B.default.weight": 0.003394937375560403,
+    "base_model.model.moment.encoder.block.2.layer.0.SelfAttention.v.lora_A.default.weight": 0.0,
+    "base_model.model.moment.encoder.block.2.layer.0.SelfAttention.v.lora_B.default.weight": 0.005096795503050089,
+    "base_model.model.moment.encoder.block.3.layer.0.SelfAttention.q.lora_A.default.weight": 0.0,
+    "base_model.model.moment.encoder.block.3.layer.0.SelfAttention.q.lora_B.default.weight": 0.0026489754673093557,
+    "base_model.model.moment.encoder.block.3.layer.0.SelfAttention.v.lora_A.default.weight": 0.0,
+    "base_model.model.moment.encoder.block.3.layer.0.SelfAttention.v.lora_B.default.weight": 0.004322635475546122,
+    "base_model.model.moment.encoder.block.4.layer.0.SelfAttention.q.lora_A.default.weight": 0.0,
+    "base_model.model.moment.encoder.block.4.layer.0.SelfAttention.q.lora_B.default.weight": 0.005594171117991209,
+    "base_model.model.moment.encoder.block.4.layer.0.SelfAttention.v.lora_A.default.weight": 0.0,
+    "base_model.model.moment.encoder.block.4.layer.0.SelfAttention.v.lora_B.default.weight": 0.0033100517466664314,
+    "base_model.model.moment.encoder.block.5.layer.0.SelfAttention.q.lora_A.default.weight": 0.0,
+    "base_model.model.moment.encoder.block.5.layer.0.SelfAttention.q.lora_B.default.weight": 0.005674277897924185,
+    "base_model.model.moment.encoder.block.5.layer.0.SelfAttention.v.lora_A.default.weight": 0.0,
+    "base_model.model.moment.encoder.block.5.layer.0.SelfAttention.v.lora_B.default.weight": 0.0027251264546066523,
+    "base_model.model.moment.encoder.block.6.layer.0.SelfAttention.q.lora_A.default.weight": 0.0,
+    "base_model.model.moment.encoder.block.6.layer.0.SelfAttention.q.lora_B.default.weight": 0.004178400617092848,
+    "base_model.model.moment.encoder.block.6.layer.0.SelfAttention.v.lora_A.default.weight": 0.0,
+    "base_model.model.moment.encoder.block.6.layer.0.SelfAttention.v.lora_B.default.weight": 0.00563785107806325,
+    "base_model.model.moment.encoder.block.7.layer.0.SelfAttention.q.lora_A.default.weight": 0.0,
+    "base_model.model.moment.encoder.block.7.layer.0.SelfAttention.q.lora_B.default.weight": 0.003968189936131239,
+    "base_model.model.moment.encoder.block.7.layer.0.SelfAttention.v.lora_A.default.weight": 0.0,
+    "base_model.model.moment.encoder.block.7.layer.0.SelfAttention.v.lora_B.default.weight": 0.00625016912817955,
+    "base_model.model.moment.head.modules_to_save.default.linear.weight": 5.812548637390137,
+    "base_model.model.moment.head.modules_to_save.default.linear.bias": 0.22489546239376068
+  },
+  "logits_shape": [
+    1,
+    5
+  ],
+  "logits": [
+    [
+      -0.1373467892408371,
+      0.09715138375759125,
+      -0.05043922737240791,
+      -0.0417025201022625,
+      -0.09472213685512543
+    ]
+  ],
+  "loss": 0.6989490389823914,
+  "optimizer_steps": 1,
+  "step_seconds": 0.46278949989937246,
+  "peak_cuda_allocated_bytes": 440281600,
+  "peak_cuda_reserved_bytes": 469762048,
+  "negative_target_experiment": {
+    "outcome": "rejected_before_optimizer",
+    "error": "Zero Linear target matches for 'NOT_A_REAL_TARGET'; optimizer must not start",
+    "optimizer_steps": 0
+  },
+  "adapter_artifacts": {
+    "adapter_config.json": "ffe4e5752430515a08c98ea5c1444262432e013260938a0bb3f4af12973a021a",
+    "adapter_model.safetensors": "721468ac745f9b9b9c1decaf61796df5603ac3be04a74db73e8a5fce9a5be1cb",
+    "README.md": "6f1fa59434ad59ccd070ae369ac38f6f27080efee3a67d080b2bcf43e2f64319"
+  },
+  "license": "MIT",
+  "license_source": "https://huggingface.co/AutonLab/MOMENT-1-small/blob/411e288267f82cce86296dbe4d6c8bc533cc162f/README.md",
+  "pretraining_dataset": "AutonLab/Timeseries-PILE",
+  "ptbxl_pretraining_overlap": "unknown_not_proven_absent_by_model_card",
+  "integration_note": "A thin wrapper supplies PEFT's dict config while MOMENT keeps its Namespace config.",
+  "limitations": [
+    "Single training record, single 512-sample window, single optimizer step",
+    "No model selection or final test evaluation",
+    "Window inherits record label",
+    "PTB-XL pretraining overlap is not verified absent"
+  ]
+}

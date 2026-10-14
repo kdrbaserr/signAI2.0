@@ -12,6 +12,14 @@ dependencies = [
     "numpy>=2.2,<3",
 ]
 
+[project.optional-dependencies]
+probe = [
+    "momentfm==0.1.5",
+    "peft==0.17.1",
+    "torch==2.8.0",
+    "transformers==4.55.4",
+]
+
 [dependency-groups]
 dev = ["pytest>=8.3,<9"]
 
@@ -21,3 +29,12 @@ packages = ["src/signai"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-ra --import-mode=importlib"
+
+[tool.uv.sources]
+momentfm = { url = "https://github.com/moment-timeseries-foundation-model/moment/archive/38f7310ad594100747ca2a8357e9c7ca7d323e0e.zip" }
+torch = [{ index = "pytorch-cu128", marker = "sys_platform == 'win32' or sys_platform == 'linux'" }]
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true

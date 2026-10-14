@@ -1,0 +1,170 @@
+name	type	direct_parameters	selection
+<root>	MomentClassifier	0	
+moment	MOMENTPipeline	0	
+moment.normalizer	RevIN	0	
+moment.tokenizer	Patching	0	
+moment.patch_embedding	PatchEmbedding	512	
+moment.patch_embedding.value_embedding	Linear	4096	
+moment.patch_embedding.position_embedding	PositionalEmbedding	0	
+moment.patch_embedding.dropout	Dropout	0	
+moment.encoder	T5Stack	0	
+moment.encoder.embed_tokens	Embedding	16449536	
+moment.encoder.block	ModuleList	0	
+moment.encoder.block.0	T5Block	0	
+moment.encoder.block.0.layer	ModuleList	0	
+moment.encoder.block.0.layer.0	T5LayerSelfAttention	0	
+moment.encoder.block.0.layer.0.SelfAttention	T5Attention	0	
+moment.encoder.block.0.layer.0.SelfAttention.q	Linear	196608	LORA_TARGET
+moment.encoder.block.0.layer.0.SelfAttention.k	Linear	196608	
+moment.encoder.block.0.layer.0.SelfAttention.v	Linear	196608	LORA_TARGET
+moment.encoder.block.0.layer.0.SelfAttention.o	Linear	196608	
+moment.encoder.block.0.layer.0.SelfAttention.relative_attention_bias	Embedding	192	
+moment.encoder.block.0.layer.0.layer_norm	T5LayerNorm	512	
+moment.encoder.block.0.layer.0.dropout	Dropout	0	
+moment.encoder.block.0.layer.1	T5LayerFF	0	
+moment.encoder.block.0.layer.1.DenseReluDense	T5DenseGatedActDense	0	
+moment.encoder.block.0.layer.1.DenseReluDense.wi_0	Linear	524288	
+moment.encoder.block.0.layer.1.DenseReluDense.wi_1	Linear	524288	
+moment.encoder.block.0.layer.1.DenseReluDense.wo	Linear	524288	
+moment.encoder.block.0.layer.1.DenseReluDense.dropout	Dropout	0	
+moment.encoder.block.0.layer.1.DenseReluDense.act	NewGELUActivation	0	
+moment.encoder.block.0.layer.1.layer_norm	T5LayerNorm	512	
+moment.encoder.block.0.layer.1.dropout	Dropout	0	
+moment.encoder.block.1	T5Block	0	
+moment.encoder.block.1.layer	ModuleList	0	
+moment.encoder.block.1.layer.0	T5LayerSelfAttention	0	
+moment.encoder.block.1.layer.0.SelfAttention	T5Attention	0	
+moment.encoder.block.1.layer.0.SelfAttention.q	Linear	196608	LORA_TARGET
+moment.encoder.block.1.layer.0.SelfAttention.k	Linear	196608	
+moment.encoder.block.1.layer.0.SelfAttention.v	Linear	196608	LORA_TARGET
+moment.encoder.block.1.layer.0.SelfAttention.o	Linear	196608	
+moment.encoder.block.1.layer.0.layer_norm	T5LayerNorm	512	
+moment.encoder.block.1.layer.0.dropout	Dropout	0	
+moment.encoder.block.1.layer.1	T5LayerFF	0	
+moment.encoder.block.1.layer.1.DenseReluDense	T5DenseGatedActDense	0	
+moment.encoder.block.1.layer.1.DenseReluDense.wi_0	Linear	524288	
+moment.encoder.block.1.layer.1.DenseReluDense.wi_1	Linear	524288	
+moment.encoder.block.1.layer.1.DenseReluDense.wo	Linear	524288	
+moment.encoder.block.1.layer.1.DenseReluDense.dropout	Dropout	0	
+moment.encoder.block.1.layer.1.DenseReluDense.act	NewGELUActivation	0	
+moment.encoder.block.1.layer.1.layer_norm	T5LayerNorm	512	
+moment.encoder.block.1.layer.1.dropout	Dropout	0	
+moment.encoder.block.2	T5Block	0	
+moment.encoder.block.2.layer	ModuleList	0	
+moment.encoder.block.2.layer.0	T5LayerSelfAttention	0	
+moment.encoder.block.2.layer.0.SelfAttention	T5Attention	0	
+moment.encoder.block.2.layer.0.SelfAttention.q	Linear	196608	LORA_TARGET
+moment.encoder.block.2.layer.0.SelfAttention.k	Linear	196608	
+moment.encoder.block.2.layer.0.SelfAttention.v	Linear	196608	LORA_TARGET
+moment.encoder.block.2.layer.0.SelfAttention.o	Linear	196608	
+moment.encoder.block.2.layer.0.layer_norm	T5LayerNorm	512	
+moment.encoder.block.2.layer.0.dropout	Dropout	0	
+moment.encoder.block.2.layer.1	T5LayerFF	0	
+moment.encoder.block.2.layer.1.DenseReluDense	T5DenseGatedActDense	0	
+moment.encoder.block.2.layer.1.DenseReluDense.wi_0	Linear	524288	
+moment.encoder.block.2.layer.1.DenseReluDense.wi_1	Linear	524288	
+moment.encoder.block.2.layer.1.DenseReluDense.wo	Linear	524288	
+moment.encoder.block.2.layer.1.DenseReluDense.dropout	Dropout	0	
+moment.encoder.block.2.layer.1.DenseReluDense.act	NewGELUActivation	0	
+moment.encoder.block.2.layer.1.layer_norm	T5LayerNorm	512	
+moment.encoder.block.2.layer.1.dropout	Dropout	0	
+moment.encoder.block.3	T5Block	0	
+moment.encoder.block.3.layer	ModuleList	0	
+moment.encoder.block.3.layer.0	T5LayerSelfAttention	0	
+moment.encoder.block.3.layer.0.SelfAttention	T5Attention	0	
+moment.encoder.block.3.layer.0.SelfAttention.q	Linear	196608	LORA_TARGET
+moment.encoder.block.3.layer.0.SelfAttention.k	Linear	196608	
+moment.encoder.block.3.layer.0.SelfAttention.v	Linear	196608	LORA_TARGET
+moment.encoder.block.3.layer.0.SelfAttention.o	Linear	196608	
+moment.encoder.block.3.layer.0.layer_norm	T5LayerNorm	512	
+moment.encoder.block.3.layer.0.dropout	Dropout	0	
+moment.encoder.block.3.layer.1	T5LayerFF	0	
+moment.encoder.block.3.layer.1.DenseReluDense	T5DenseGatedActDense	0	
+moment.encoder.block.3.layer.1.DenseReluDense.wi_0	Linear	524288	
+moment.encoder.block.3.layer.1.DenseReluDense.wi_1	Linear	524288	
+moment.encoder.block.3.layer.1.DenseReluDense.wo	Linear	524288	
+moment.encoder.block.3.layer.1.DenseReluDense.dropout	Dropout	0	
+moment.encoder.block.3.layer.1.DenseReluDense.act	NewGELUActivation	0	
+moment.encoder.block.3.layer.1.layer_norm	T5LayerNorm	512	
+moment.encoder.block.3.layer.1.dropout	Dropout	0	
+moment.encoder.block.4	T5Block	0	
+moment.encoder.block.4.layer	ModuleList	0	
+moment.encoder.block.4.layer.0	T5LayerSelfAttention	0	
+moment.encoder.block.4.layer.0.SelfAttention	T5Attention	0	
+moment.encoder.block.4.layer.0.SelfAttention.q	Linear	196608	LORA_TARGET
+moment.encoder.block.4.layer.0.SelfAttention.k	Linear	196608	
+moment.encoder.block.4.layer.0.SelfAttention.v	Linear	196608	LORA_TARGET
+moment.encoder.block.4.layer.0.SelfAttention.o	Linear	196608	
+moment.encoder.block.4.layer.0.layer_norm	T5LayerNorm	512	
+moment.encoder.block.4.layer.0.dropout	Dropout	0	
+moment.encoder.block.4.layer.1	T5LayerFF	0	
+moment.encoder.block.4.layer.1.DenseReluDense	T5DenseGatedActDense	0	
+moment.encoder.block.4.layer.1.DenseReluDense.wi_0	Linear	524288	
+moment.encoder.block.4.layer.1.DenseReluDense.wi_1	Linear	524288	
+moment.encoder.block.4.layer.1.DenseReluDense.wo	Linear	524288	
+moment.encoder.block.4.layer.1.DenseReluDense.dropout	Dropout	0	
+moment.encoder.block.4.layer.1.DenseReluDense.act	NewGELUActivation	0	
+moment.encoder.block.4.layer.1.layer_norm	T5LayerNorm	512	
+moment.encoder.block.4.layer.1.dropout	Dropout	0	
+moment.encoder.block.5	T5Block	0	
+moment.encoder.block.5.layer	ModuleList	0	
+moment.encoder.block.5.layer.0	T5LayerSelfAttention	0	
+moment.encoder.block.5.layer.0.SelfAttention	T5Attention	0	
+moment.encoder.block.5.layer.0.SelfAttention.q	Linear	196608	LORA_TARGET
+moment.encoder.block.5.layer.0.SelfAttention.k	Linear	196608	
+moment.encoder.block.5.layer.0.SelfAttention.v	Linear	196608	LORA_TARGET
+moment.encoder.block.5.layer.0.SelfAttention.o	Linear	196608	
+moment.encoder.block.5.layer.0.layer_norm	T5LayerNorm	512	
+moment.encoder.block.5.layer.0.dropout	Dropout	0	
+moment.encoder.block.5.layer.1	T5LayerFF	0	
+moment.encoder.block.5.layer.1.DenseReluDense	T5DenseGatedActDense	0	
+moment.encoder.block.5.layer.1.DenseReluDense.wi_0	Linear	524288	
+moment.encoder.block.5.layer.1.DenseReluDense.wi_1	Linear	524288	
+moment.encoder.block.5.layer.1.DenseReluDense.wo	Linear	524288	
+moment.encoder.block.5.layer.1.DenseReluDense.dropout	Dropout	0	
+moment.encoder.block.5.layer.1.DenseReluDense.act	NewGELUActivation	0	
+moment.encoder.block.5.layer.1.layer_norm	T5LayerNorm	512	
+moment.encoder.block.5.layer.1.dropout	Dropout	0	
+moment.encoder.block.6	T5Block	0	
+moment.encoder.block.6.layer	ModuleList	0	
+moment.encoder.block.6.layer.0	T5LayerSelfAttention	0	
+moment.encoder.block.6.layer.0.SelfAttention	T5Attention	0	
+moment.encoder.block.6.layer.0.SelfAttention.q	Linear	196608	LORA_TARGET
+moment.encoder.block.6.layer.0.SelfAttention.k	Linear	196608	
+moment.encoder.block.6.layer.0.SelfAttention.v	Linear	196608	LORA_TARGET
+moment.encoder.block.6.layer.0.SelfAttention.o	Linear	196608	
+moment.encoder.block.6.layer.0.layer_norm	T5LayerNorm	512	
+moment.encoder.block.6.layer.0.dropout	Dropout	0	
+moment.encoder.block.6.layer.1	T5LayerFF	0	
+moment.encoder.block.6.layer.1.DenseReluDense	T5DenseGatedActDense	0	
+moment.encoder.block.6.layer.1.DenseReluDense.wi_0	Linear	524288	
+moment.encoder.block.6.layer.1.DenseReluDense.wi_1	Linear	524288	
+moment.encoder.block.6.layer.1.DenseReluDense.wo	Linear	524288	
+moment.encoder.block.6.layer.1.DenseReluDense.dropout	Dropout	0	
+moment.encoder.block.6.layer.1.DenseReluDense.act	NewGELUActivation	0	
+moment.encoder.block.6.layer.1.layer_norm	T5LayerNorm	512	
+moment.encoder.block.6.layer.1.dropout	Dropout	0	
+moment.encoder.block.7	T5Block	0	
+moment.encoder.block.7.layer	ModuleList	0	
+moment.encoder.block.7.layer.0	T5LayerSelfAttention	0	
+moment.encoder.block.7.layer.0.SelfAttention	T5Attention	0	
+moment.encoder.block.7.layer.0.SelfAttention.q	Linear	196608	LORA_TARGET
+moment.encoder.block.7.layer.0.SelfAttention.k	Linear	196608	
+moment.encoder.block.7.layer.0.SelfAttention.v	Linear	196608	LORA_TARGET
+moment.encoder.block.7.layer.0.SelfAttention.o	Linear	196608	
+moment.encoder.block.7.layer.0.layer_norm	T5LayerNorm	512	
+moment.encoder.block.7.layer.0.dropout	Dropout	0	
+moment.encoder.block.7.layer.1	T5LayerFF	0	
+moment.encoder.block.7.layer.1.DenseReluDense	T5DenseGatedActDense	0	
+moment.encoder.block.7.layer.1.DenseReluDense.wi_0	Linear	524288	
+moment.encoder.block.7.layer.1.DenseReluDense.wi_1	Linear	524288	
+moment.encoder.block.7.layer.1.DenseReluDense.wo	Linear	524288	
+moment.encoder.block.7.layer.1.DenseReluDense.dropout	Dropout	0	
+moment.encoder.block.7.layer.1.DenseReluDense.act	NewGELUActivation	0	
+moment.encoder.block.7.layer.1.layer_norm	T5LayerNorm	512	
+moment.encoder.block.7.layer.1.dropout	Dropout	0	
+moment.encoder.final_layer_norm	T5LayerNorm	512	
+moment.encoder.dropout	Dropout	0	
+moment.head	ClassificationHead	0	
+moment.head.dropout	Dropout	0	
+moment.head.linear	Linear	30725	
