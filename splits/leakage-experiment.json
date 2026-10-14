@@ -1,0 +1,16 @@
+{
+  "experiment": "same_patient_across_train_validation_folds",
+  "changed_ecg_id": 8,
+  "original_patient_id": 11275,
+  "injected_patient_id": 15709,
+  "changed_record_fold": 9,
+  "outcome": "rejected_as_expected",
+  "exception_type": "SplitIntegrityError",
+  "exception_message": "Patient 15709 appears in multiple folds: 3 / 9",
+  "original_manifest_files_modified": false,
+  "manifest_sha256": {
+    "train": "efbf8c7d137d41f49937a1f704d88a28201121a727971bec3de84c6956ad73ab",
+    "validation": "413e031ae9a9267fc88eeb196f2fe5baecbb61ed51bc9737821ed3f0a68caeff",
+    "test": "cef2bc7f4ea0e03d64459226d2ec0d98c736af98564bf0b9d9659735c09ce15b"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "nan",
+  "axis_order": [
+    "time",
+    "channel"
+  ],
+  "channels": [
+    "I",
+    "II",
+    "III",
+    "AVR",
+    "AVL",
+    "AVF",
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5",
+    "V6"
+  ],
+  "unit": "mV",
+  "sampling_rate_hz": 100,
+  "duration_seconds": 10.0,
+  "npz_sha256": "7824fc73fb8df2c382e89794c892d0865887f762c9f9e169e015b4ac9540ec40"
+}

@@ -1,0 +1,50 @@
+{
+  "fixture_type": "synthetic_contract_examples_not_patient_data",
+  "cases": [
+    {
+      "name": "valid",
+      "synthetic": true,
+      "expected_error_code": null
+    },
+    {
+      "name": "wrong_channel_order",
+      "synthetic": true,
+      "expected_error_code": "E_CHANNEL_ORDER"
+    },
+    {
+      "name": "wrong_sample_rate",
+      "synthetic": true,
+      "expected_error_code": "E_SAMPLE_RATE"
+    },
+    {
+      "name": "wrong_unit",
+      "synthetic": true,
+      "expected_error_code": "E_UNIT"
+    },
+    {
+      "name": "missing_channel",
+      "synthetic": true,
+      "expected_error_code": "E_CHANNEL_COUNT"
+    },
+    {
+      "name": "nan",
+      "synthetic": true,
+      "expected_error_code": "E_NONFINITE"
+    },
+    {
+      "name": "infinity",
+      "synthetic": true,
+      "expected_error_code": "E_NONFINITE"
+    },
+    {
+      "name": "wrong_duration",
+      "synthetic": true,
+      "expected_error_code": "E_DURATION"
+    },
+    {
+      "name": "excessive_amplitude",
+      "synthetic": true,
+      "expected_error_code": "E_AMPLITUDE"
+    }
+  ]
+}

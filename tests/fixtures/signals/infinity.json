@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "infinity",
+  "axis_order": [
+    "time",
+    "channel"
+  ],
+  "channels": [
+    "I",
+    "II",
+    "III",
+    "AVR",
+    "AVL",
+    "AVF",
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5",
+    "V6"
+  ],
+  "unit": "mV",
+  "sampling_rate_hz": 100,
+  "duration_seconds": 10.0,
+  "npz_sha256": "13c1cc008e1572833bbdf1d2ecf9777f946e47b37358472dbe9c539a484ed8e7"
+}

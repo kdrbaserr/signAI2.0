@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "wrong_unit",
+  "axis_order": [
+    "time",
+    "channel"
+  ],
+  "channels": [
+    "I",
+    "II",
+    "III",
+    "AVR",
+    "AVL",
+    "AVF",
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5",
+    "V6"
+  ],
+  "unit": "uV",
+  "sampling_rate_hz": 100,
+  "duration_seconds": 10.0,
+  "npz_sha256": "bbb91ddb8c6c749d9c1494d5d5d57161c0ed93d22f737b8dffcf8eb57e055a4d"
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "excessive_amplitude",
+  "axis_order": [
+    "time",
+    "channel"
+  ],
+  "channels": [
+    "I",
+    "II",
+    "III",
+    "AVR",
+    "AVL",
+    "AVF",
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5",
+    "V6"
+  ],
+  "unit": "mV",
+  "sampling_rate_hz": 100,
+  "duration_seconds": 10.0,
+  "npz_sha256": "55935a14534269a1ff6e0c321a420db78c39ede401f0badb960596f9cba67d43"
+}
