@@ -1,0 +1,10 @@
+{
+  "status": "rejected_as_expected",
+  "error_code": "E_TIME_SCALE",
+  "metadata_sampling_rate_hz": 100,
+  "incorrect_plot_sampling_rate_hz": 500,
+  "expected_coverage_seconds": 10,
+  "incorrect_coverage_seconds": 2,
+  "incorrect_last_sample_seconds": 1.998,
+  "message": "Plot time does not match sample count, sampling rate and metadata duration"
+}

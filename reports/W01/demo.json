@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "ecg_id": 1,
+  "inspection_runs": 2,
+  "outputs_identical": true,
+  "output_sha256": {
+    "ecg_00001.png": "64fc4af44c86989ce3d44d5319b2d1604c831855480dad1fbfec2a891c770ae2",
+    "ecg_00001.json": "9cc7e698ff2443e8d66bfd4ee9cbc854b5fb49eff0a27f7ec1128eb2e828ac3f"
+  },
+  "time_scale_experiment": {
+    "status": "rejected_as_expected",
+    "error_code": "E_TIME_SCALE",
+    "metadata_sampling_rate_hz": 100,
+    "incorrect_plot_sampling_rate_hz": 500,
+    "expected_coverage_seconds": 10,
+    "incorrect_coverage_seconds": 2,
+    "incorrect_last_sample_seconds": 1.998,
+    "message": "Plot time does not match sample count, sampling rate and metadata duration"
+  },
+  "model_probe": {
+    "path": "reports/W01-D05/model_probe.json",
+    "sha256": "846d0a74ab2650d2586d68af3ba618f42c7f9ab42101ae9ac279e2b42faafc69",
+    "status": "passed",
+    "checkpoint_revision": "411e288267f82cce86296dbe4d6c8bc533cc162f",
+    "lora_support_proven": true
+  },
+  "scope": "Local waveform inspection and existing model probe evidence; no new training or final test evaluation."
+}

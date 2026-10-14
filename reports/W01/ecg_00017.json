@@ -1,0 +1,93 @@
+{
+  "inspection_version": "1.0.0",
+  "ecg_id": 17,
+  "patient_id": 13619,
+  "split": "validation",
+  "strat_fold": 9,
+  "label_order": [
+    "NORM",
+    "MI",
+    "STTC",
+    "CD",
+    "HYP"
+  ],
+  "label_vector": null,
+  "labels": [],
+  "excluded_reason": "no_diagnostic_superclass",
+  "signal": {
+    "valid": true,
+    "record_id": "ptbxl_1_0_3_00017",
+    "policy_version": "ptbxl-100hz-12lead-mv-v1",
+    "shape": [
+      1000,
+      12
+    ],
+    "dtype": "float64",
+    "axis_order": [
+      "time",
+      "channel"
+    ],
+    "channels": [
+      "I",
+      "II",
+      "III",
+      "AVR",
+      "AVL",
+      "AVF",
+      "V1",
+      "V2",
+      "V3",
+      "V4",
+      "V5",
+      "V6"
+    ],
+    "unit": "mV",
+    "sampling_rate_hz": 100,
+    "duration_seconds": 10.0,
+    "max_abs_mv_per_channel": [
+      0.96,
+      0.654,
+      0.529,
+      0.771,
+      0.736,
+      0.345,
+      1.028,
+      2.251,
+      2.0,
+      2.434,
+      1.449,
+      1.526
+    ],
+    "npz_sha256": "1c18e61f2145809afd39cc89b6ed2d5b31a17a4d45de4e290af9b802480e86dd",
+    "metadata_sha256": "f22d573232fc0200f07b95dbec73db84296982ea96435923daa6e582f8e9a940",
+    "signal_schema_sha256": "f25effa0d4293affe556851ffa494a4e1c7e7eb2eddfdbecba468e143d487d33",
+    "input_files_modified": false
+  },
+  "time_axis": {
+    "sample_count": 1000,
+    "sampling_rate_hz": 100,
+    "sample_interval_seconds": 0.01,
+    "first_sample_seconds": 0.0,
+    "last_sample_seconds": 9.99,
+    "sample_coverage_seconds": 10.0,
+    "plot_xlim_seconds": [
+      0,
+      10.0
+    ],
+    "time_axis_checked": true
+  },
+  "source_waveform_sha256": {
+    "records100/00000/00017_lr.hea": "86ee88d33a52451c8fba07bc0b3892b55ceaaf11f5b678bdec405f338fe60be9",
+    "records100/00000/00017_lr.dat": "421112cb86fd97d98a22191c1ddb3b5d2ed1724df646dedd3b4b3c6e84fdad95"
+  },
+  "source_manifest_sha256": "413e031ae9a9267fc88eeb196f2fe5baecbb61ed51bc9737821ed3f0a68caeff",
+  "png_sha256": "2aeb6a94a8fdc7fbe3dffa75f36cdd594bb0ae9313e65352e75d96c82a8876b3",
+  "inspector_code_sha256": "01bf2c19d7eff64f9a13857a8568c150cbd2d0e2690516bcaf09c25b3a079664",
+  "packages": {
+    "numpy": "2.5.4",
+    "matplotlib": "3.11.2",
+    "pillow": "12.3.0"
+  },
+  "input_files_unchanged": true,
+  "plot_policy": "Raw physical amplitudes; no filtering, normalization or model prediction. Per-lead y axes autoscale; x axes share 0-10 seconds."
+}

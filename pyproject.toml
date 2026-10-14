@@ -19,6 +19,9 @@ probe = [
     "torch==2.8.0",
     "transformers==4.55.4",
 ]
+inspect = [
+    "matplotlib>=3.9,<4",
+]
 
 [dependency-groups]
 dev = ["pytest>=8.3,<9"]
