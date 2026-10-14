@@ -1,0 +1,57 @@
+# Python and isolated environments
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv*/
+.uv-cache/
+.uv-python/
+.pytest_cache/
+.coverage
+htmlcov/
+build/
+dist/
+
+# Local credentials; .env.example may contain placeholders only
+.env
+.env.*
+!.env.example
+secrets/
+credentials/
+*.pem
+*.key
+*.p12
+*.pfx
+service-account*.json
+
+# Datasets, model artifacts, experiment output and videos
+data/
+artifacts/
+models/
+checkpoints/
+mlruns/
+outputs/
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.h5
+*.hdf5
+*.safetensors
+*.pkl
+*.joblib
+*.npy
+*.npz
+*.parquet
+*.csv
+*.zip
+*.tar
+*.gz
+*.mp4
+*.avi
+*.mov
+*.webm
+
+# Local editor and notebook state
+.idea/
+.vscode/
+.ipynb_checkpoints/
