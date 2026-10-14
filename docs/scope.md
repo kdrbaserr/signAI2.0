@@ -33,7 +33,7 @@ GPU eğitimi, Kubernetes ve otomatik dağıtım.
 
 | Konu | Durum |
 | --- | --- |
-| Veri / model problemi | Henüz seçilmedi; proje isminden işaret dili kapsamı çıkarılmadı. |
+| Veri / model problemi | Gün 2: PTB-XL 1.0.3, 100 Hz ECG → NORM/MI/STTC/CD/HYP çok etiketli sınıflandırma. Ayrıntı: data-card.md ve label_schema.json. |
 | Haftalık 33 saat | Plan hedefi; kullanıcı uygunluğu henüz doğrulanmadı. |
 | Bulut / Colab bütçesi | Kullanıcı bütçeyi henüz tasarlamadı; ilerleyen aşamalarda görüşülecek. |
 | Bugünkü harcama | Ücretli bulut kaynağı yok; yerel çalışma. |
@@ -41,7 +41,9 @@ GPU eğitimi, Kubernetes ve otomatik dağıtım.
 
 ## Çalışma anlaşması
 
-Bir görev: neden → küçük uygulama → kontrol → hata/çözüm → öğrenme notu.
+Bir görev: neden → küçük uygulama → kontrol → hata/çözüm → chat içinde öğrenme açıklaması.
+Repo yalnızca kod, test ve gereken teknik sözleşmeleri içerir; yeni öğrenme günlükleri eklenmez.
+Git commit/push/pull işlemlerini kullanıcı yönetir.
 Tamamlanmayan kontroller tamamlanmış gibi yazılmaz. Model metriği, gecikme ve
 maliyet hedefleri problem seçildikten sonra tanımlanır. Veri lisansı ve kişisel
 veri koşulları veri seçimi sırasında incelenir.

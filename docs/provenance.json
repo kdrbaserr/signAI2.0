@@ -1,0 +1,224 @@
+{
+  "provenance_version": "1.0.0",
+  "dataset": "PTB-XL",
+  "dataset_version": "1.0.3",
+  "dataset_doi": "10.13026/kfzx-aw45",
+  "source_page": "https://physionet.org/content/ptb-xl/1.0.3/",
+  "download_mirror": "https://physionet-open.s3.amazonaws.com/ptb-xl/1.0.3/",
+  "license": {
+    "id": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "retrieved_or_verified_at_utc": "2026-10-14T13:24:52.089245+00:00",
+  "raw_directory": "data/raw/ptb-xl/1.0.3",
+  "label_policy_version": "ptbxl-superclass-presence-v1",
+  "label_schema_sha256": "505547830126b653438138706d99683f784aa041843ebc06f49fd009533e8eb2",
+  "generator": {
+    "module": "signai.ptbxl",
+    "source_sha256": "1cee99bbd5e4a4e22cddcdeffa90687168ad5aa3057a1f581b9d57a2e1ab24c2",
+    "python_version": "3.12.13"
+  },
+  "files": [
+    {
+      "relative_path": "LICENSE.txt",
+      "source_url": "https://physionet-open.s3.amazonaws.com/ptb-xl/1.0.3/LICENSE.txt",
+      "canonical_url": "https://physionet.org/files/ptb-xl/1.0.3/LICENSE.txt",
+      "bytes": 14842,
+      "sha256": "9a78e7f22742dde9f66ae235ec793ba2212019dc4d0ced75c4da09ced0b35fb2",
+      "upstream_sha256": "9a78e7f22742dde9f66ae235ec793ba2212019dc4d0ced75c4da09ced0b35fb2",
+      "upstream_checksum_verified": true
+    },
+    {
+      "relative_path": "SHA256SUMS.txt",
+      "source_url": "https://physionet-open.s3.amazonaws.com/ptb-xl/1.0.3/SHA256SUMS.txt",
+      "canonical_url": "https://physionet.org/files/ptb-xl/1.0.3/SHA256SUMS.txt",
+      "bytes": 8284204,
+      "sha256": "b7224b92b341511ec3ceb13dc6652079b2c36a06504bcb49506f157f51dc695d",
+      "upstream_sha256": null,
+      "upstream_checksum_verified": false
+    },
+    {
+      "relative_path": "example_physionet.py",
+      "source_url": "https://physionet-open.s3.amazonaws.com/ptb-xl/1.0.3/example_physionet.py",
+      "canonical_url": "https://physionet.org/files/ptb-xl/1.0.3/example_physionet.py",
+      "bytes": 1340,
+      "sha256": "8de8392559989810d368053904e442eff162d1dadb8e76788e197e24c98fe81d",
+      "upstream_sha256": "8de8392559989810d368053904e442eff162d1dadb8e76788e197e24c98fe81d",
+      "upstream_checksum_verified": true
+    },
+    {
+      "relative_path": "ptbxl_database.csv",
+      "source_url": "https://physionet-open.s3.amazonaws.com/ptb-xl/1.0.3/ptbxl_database.csv",
+      "canonical_url": "https://physionet.org/files/ptb-xl/1.0.3/ptbxl_database.csv",
+      "bytes": 6594879,
+      "sha256": "7600de9c1b27d181d850b3c6038a35d7c3ddb6bb33b702e3a20252a6859d216b",
+      "upstream_sha256": "7600de9c1b27d181d850b3c6038a35d7c3ddb6bb33b702e3a20252a6859d216b",
+      "upstream_checksum_verified": true
+    },
+    {
+      "relative_path": "records100/00000/00001_lr.dat",
+      "source_url": "https://physionet-open.s3.amazonaws.com/ptb-xl/1.0.3/records100/00000/00001_lr.dat",
+      "canonical_url": "https://physionet.org/files/ptb-xl/1.0.3/records100/00000/00001_lr.dat",
+      "bytes": 24000,
+      "sha256": "308012fb657e1eea29a86902a8576e2e173594bd16f11ec1f45c7445cec97572",
+      "upstream_sha256": "308012fb657e1eea29a86902a8576e2e173594bd16f11ec1f45c7445cec97572",
+      "upstream_checksum_verified": true
+    },
+    {
+      "relative_path": "records100/00000/00001_lr.hea",
+      "source_url": "https://physionet-open.s3.amazonaws.com/ptb-xl/1.0.3/records100/00000/00001_lr.hea",
+      "canonical_url": "https://physionet.org/files/ptb-xl/1.0.3/records100/00000/00001_lr.hea",
+      "bytes": 596,
+      "sha256": "051aa38ee3f530df1f2dd35ec097439a54befceef18c60d4157da2a5628aefbb",
+      "upstream_sha256": "051aa38ee3f530df1f2dd35ec097439a54befceef18c60d4157da2a5628aefbb",
+      "upstream_checksum_verified": true
+    },
+    {
+      "relative_path": "records100/00000/00017_lr.dat",
+      "source_url": "https://physionet-open.s3.amazonaws.com/ptb-xl/1.0.3/records100/00000/00017_lr.dat",
+      "canonical_url": "https://physionet.org/files/ptb-xl/1.0.3/records100/00000/00017_lr.dat",
+      "bytes": 24000,
+      "sha256": "421112cb86fd97d98a22191c1ddb3b5d2ed1724df646dedd3b4b3c6e84fdad95",
+      "upstream_sha256": "421112cb86fd97d98a22191c1ddb3b5d2ed1724df646dedd3b4b3c6e84fdad95",
+      "upstream_checksum_verified": true
+    },
+    {
+      "relative_path": "records100/00000/00017_lr.hea",
+      "source_url": "https://physionet-open.s3.amazonaws.com/ptb-xl/1.0.3/records100/00000/00017_lr.hea",
+      "canonical_url": "https://physionet.org/files/ptb-xl/1.0.3/records100/00000/00017_lr.hea",
+      "bytes": 609,
+      "sha256": "86ee88d33a52451c8fba07bc0b3892b55ceaaf11f5b678bdec405f338fe60be9",
+      "upstream_sha256": "86ee88d33a52451c8fba07bc0b3892b55ceaaf11f5b678bdec405f338fe60be9",
+      "upstream_checksum_verified": true
+    },
+    {
+      "relative_path": "records100/00000/00039_lr.dat",
+      "source_url": "https://physionet-open.s3.amazonaws.com/ptb-xl/1.0.3/records100/00000/00039_lr.dat",
+      "canonical_url": "https://physionet.org/files/ptb-xl/1.0.3/records100/00000/00039_lr.dat",
+      "bytes": 24000,
+      "sha256": "943f9827415f7407ad2bc18006487da893ce40c82f3544491cdeabc8de2be869",
+      "upstream_sha256": "943f9827415f7407ad2bc18006487da893ce40c82f3544491cdeabc8de2be869",
+      "upstream_checksum_verified": true
+    },
+    {
+      "relative_path": "records100/00000/00039_lr.hea",
+      "source_url": "https://physionet-open.s3.amazonaws.com/ptb-xl/1.0.3/records100/00000/00039_lr.hea",
+      "canonical_url": "https://physionet.org/files/ptb-xl/1.0.3/records100/00000/00039_lr.hea",
+      "bytes": 599,
+      "sha256": "c18ef8bb63be80bc0af144c2a8435e944be14caa3d2a71fb0cb1a3165ebce208",
+      "upstream_sha256": "c18ef8bb63be80bc0af144c2a8435e944be14caa3d2a71fb0cb1a3165ebce208",
+      "upstream_checksum_verified": true
+    },
+    {
+      "relative_path": "scp_statements.csv",
+      "source_url": "https://physionet-open.s3.amazonaws.com/ptb-xl/1.0.3/scp_statements.csv",
+      "canonical_url": "https://physionet.org/files/ptb-xl/1.0.3/scp_statements.csv",
+      "bytes": 9720,
+      "sha256": "ad05b0b1fcae83bb1230755ad9cfc7c96f303feddc08a4a9ad5bdc9ca63bac8f",
+      "upstream_sha256": "ad05b0b1fcae83bb1230755ad9cfc7c96f303feddc08a4a9ad5bdc9ca63bac8f",
+      "upstream_checksum_verified": true
+    }
+  ],
+  "checksum_trust": "Downloaded SHA256SUMS over HTTPS; manifest itself has no independently pinned upstream digest.",
+  "metadata_audit": {
+    "metadata_records": 21799,
+    "included_records": 21388,
+    "excluded_records": 411,
+    "excluded_reason": "no_diagnostic_superclass",
+    "excluded_by_strat_fold": {
+      "1": 36,
+      "2": 43,
+      "3": 42,
+      "4": 44,
+      "5": 39,
+      "6": 44,
+      "7": 42,
+      "8": 44,
+      "9": 37,
+      "10": 40
+    },
+    "label_order": [
+      "NORM",
+      "MI",
+      "STTC",
+      "CD",
+      "HYP"
+    ],
+    "positive_records_per_label": {
+      "NORM": 9514,
+      "MI": 5469,
+      "STTC": 5235,
+      "CD": 4898,
+      "HYP": 2649
+    },
+    "multilabel_records": 5144,
+    "observed_likelihood_value_counts": {
+      "0.0": 28992,
+      "10.0": 1,
+      "14.0": 1,
+      "15.0": 1752,
+      "30.0": 1,
+      "34.0": 1,
+      "35.0": 417,
+      "50.0": 3246,
+      "80.0": 2222,
+      "100.0": 24374
+    },
+    "unknown_scp_codes": [],
+    "patient_fold_consistency": "passed"
+  },
+  "sample_selection": "Lowest ecg_id for each of normal-only, multilabel, and excluded; 100 Hz waveform/header pairs.",
+  "sample_records": [
+    {
+      "ecg_id": 1,
+      "sample_role": "normal",
+      "label_vector": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "excluded_reason": null,
+      "filename_lr": "records100/00000/00001_lr"
+    },
+    {
+      "ecg_id": 39,
+      "sample_role": "multilabel",
+      "label_vector": [
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "excluded_reason": null,
+      "filename_lr": "records100/00000/00039_lr"
+    },
+    {
+      "ecg_id": 17,
+      "sample_role": "excluded",
+      "label_vector": null,
+      "excluded_reason": "no_diagnostic_superclass",
+      "filename_lr": "records100/00000/00017_lr"
+    }
+  ],
+  "derived_artifacts": [
+    {
+      "path": "data/processed/ptb-xl/1.0.3/ptbxl-superclass-presence-v1/labels.jsonl",
+      "sha256": "2b6d5b7160379474bcc0a6f3c42962c65bd1e8ae99413fee92c31fc095fce1b7",
+      "bytes": 1445626
+    },
+    {
+      "path": "data/processed/ptb-xl/1.0.3/ptbxl-superclass-presence-v1/label_audit.json",
+      "sha256": "e8fd5547639e382240514ec9ee113139c846e4abb660c6cc30598e1c359a4b43",
+      "bytes": 860
+    },
+    {
+      "path": "data/processed/ptb-xl/1.0.3/ptbxl-superclass-presence-v1/sample_labels.json",
+      "sha256": "88493d0c14a65054c162ea800bfb6a18fd2286c5349fd46874db4c093523b93c",
+      "bytes": 1029
+    }
+  ],
+  "transformations": "Raw source files unchanged. Diagnostic superclass presence mapping; empty targets excluded from labels.jsonl. Only three waveforms downloaded."
+}
