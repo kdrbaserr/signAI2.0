@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0",
+  "policy_version": "ptbxl-100hz-12lead-mv-v1",
+  "upload_format": "one_npz_plus_one_json",
+  "npz_array_key": "signal",
+  "axis_order": ["time", "channel"],
+  "shape": [1000, 12],
+  "channels": ["I", "II", "III", "AVR", "AVL", "AVF", "V1", "V2", "V3", "V4", "V5", "V6"],
+  "unit": "mV",
+  "sampling_rate_hz": 100,
+  "duration_seconds": 10.0,
+  "allowed_dtypes": ["float32", "float64"],
+  "finite_values_only": true,
+  "max_abs_amplitude_mv": 20.0,
+  "amplitude_limit_basis": "Project ingestion guardrail; not a clinical threshold. Review against full waveform data before training.",
+  "max_npz_bytes": 1048576,
+  "max_uncompressed_bytes": 1048576,
+  "max_json_bytes": 16384,
+  "required_metadata": ["schema_version", "record_id", "channels", "unit", "sampling_rate_hz", "duration_seconds", "axis_order", "npz_sha256"],
+  "raw_signal_policy": "Validate without reorder, unit conversion, resampling, filtering, clipping or normalization. WFDB conversion creates a separate derivative.",
+  "sources": [
+    "https://physionet.org/content/ptb-xl/1.0.3/",
+    "https://physionet.org/physiotools/wag/header-5.htm",
+    "https://github.com/moment-timeseries-foundation-model/moment/blob/main/momentfm/models/moment.py"
+  ]
+}

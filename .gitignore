@@ -55,3 +55,6 @@ outputs/
 .idea/
 .vscode/
 .ipynb_checkpoints/
+
+# Small synthetic validation fixtures; real ECG data stays under ignored data/.
+!tests/fixtures/signals/*.npz
