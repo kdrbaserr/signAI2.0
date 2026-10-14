@@ -1,0 +1,114 @@
+{
+  "split_policy_version": "ptbxl-patient-folds-v1",
+  "dataset_version": "1.0.3",
+  "label_policy_version": "ptbxl-superclass-presence-v1",
+  "label_order": [
+    "NORM",
+    "MI",
+    "STTC",
+    "CD",
+    "HYP"
+  ],
+  "source": {
+    "metadata_sha256": "7600de9c1b27d181d850b3c6038a35d7c3ddb6bb33b702e3a20252a6859d216b",
+    "label_schema_sha256": "505547830126b653438138706d99683f784aa041843ebc06f49fd009533e8eb2"
+  },
+  "source_url": "https://physionet.org/content/ptb-xl/1.0.3/",
+  "generator_sha256": "06c3a2f9ed8a27d50e418ef105a66b3854ad82bdf5c23fb79c22cec2bb062f2c",
+  "statistics": {
+    "train": {
+      "metadata_records": 17418,
+      "included_records": 17084,
+      "excluded_records": 334,
+      "included_patients": 14823,
+      "all_patients": 15023,
+      "positive_records_per_label": {
+        "NORM": 7596,
+        "MI": 4379,
+        "STTC": 4186,
+        "CD": 3907,
+        "HYP": 2119
+      },
+      "positive_patients_per_label": {
+        "NORM": 7109,
+        "MI": 3708,
+        "STTC": 3629,
+        "CD": 3407,
+        "HYP": 1893
+      },
+      "multilabel_records": 4127
+    },
+    "validation": {
+      "metadata_records": 2183,
+      "included_records": 2146,
+      "excluded_records": 37,
+      "included_patients": 1917,
+      "all_patients": 1942,
+      "positive_records_per_label": {
+        "NORM": 955,
+        "MI": 540,
+        "STTC": 528,
+        "CD": 495,
+        "HYP": 268
+      },
+      "positive_patients_per_label": {
+        "NORM": 905,
+        "MI": 486,
+        "STTC": 473,
+        "CD": 449,
+        "HYP": 242
+      },
+      "multilabel_records": 509
+    },
+    "test": {
+      "metadata_records": 2198,
+      "included_records": 2158,
+      "excluded_records": 40,
+      "included_patients": 1877,
+      "all_patients": 1904,
+      "positive_records_per_label": {
+        "NORM": 963,
+        "MI": 550,
+        "STTC": 521,
+        "CD": 496,
+        "HYP": 262
+      },
+      "positive_patients_per_label": {
+        "NORM": 882,
+        "MI": 476,
+        "STTC": 475,
+        "CD": 439,
+        "HYP": 249
+      },
+      "multilabel_records": 508
+    }
+  },
+  "intersections": {
+    "train__validation": {
+      "patient_intersection": 0,
+      "record_intersection": 0
+    },
+    "train__test": {
+      "patient_intersection": 0,
+      "record_intersection": 0
+    },
+    "validation__test": {
+      "patient_intersection": 0,
+      "record_intersection": 0
+    }
+  },
+  "metadata_records": 21799,
+  "all_patients": 18869,
+  "manifest_sha256": {
+    "train": "efbf8c7d137d41f49937a1f704d88a28201121a727971bec3de84c6956ad73ab",
+    "validation": "413e031ae9a9267fc88eeb196f2fe5baecbb61ed51bc9737821ed3f0a68caeff",
+    "test": "cef2bc7f4ea0e03d64459226d2ec0d98c736af98564bf0b9d9659735c09ce15b"
+  },
+  "window_policy": "Split records first; windows inherit patient_id, ecg_id, fold and split from included parent.",
+  "training_input_policy": "fit=train only; model selection=validation only; final test requires explicit opt-in.",
+  "negative_experiment": {
+    "description": "Set a validation patient's id to a train patient's id, then validate.",
+    "expected_exception": "SplitIntegrityError: Patient appears in multiple folds",
+    "automated_test": "tests/test_split_integrity.py::test_same_patient_in_two_folds_fails"
+  }
+}
