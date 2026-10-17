@@ -63,3 +63,4 @@ outputs/
 
 # Small synthetic validation fixtures; real ECG data stays under ignored data/.
 !tests/fixtures/signals/*.npz
+!tests/fixtures/preprocessing/*.npz

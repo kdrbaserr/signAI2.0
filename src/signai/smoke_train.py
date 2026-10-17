@@ -20,8 +20,8 @@ from torch import nn
 
 from signai.ptbxl import LABEL_ORDER, sha256, write_json
 from signai.moment_adapter import MomentClassifier
+from signai.preprocessing import DEFAULT_CONFIG, DEFAULT_SCALER, Preprocessor
 from signai.splits import load_training_inputs
-from signai.validate_signal import validate_signal
 
 
 class ModelProbeError(ValueError):
@@ -112,15 +112,15 @@ def run_probe(root: Path, device_name: str = "cuda", target_override: list[str] 
     if record is None:
         raise ModelProbeError("Probe sample must be an included training record")
     sample = root / "data" / "validated" / "ptb-xl" / "1.0.3" / f"ptbxl_1_0_3_{record['ecg_id']:05}"
-    signal_check = validate_signal(sample.with_suffix(".npz"), sample.with_suffix(".json"), root / "docs" / "signal_schema.json")
-    with np.load(sample.with_suffix(".npz"), allow_pickle=False) as arrays:
-        signal = arrays["signal"]
+    preprocessor = Preprocessor(root / DEFAULT_CONFIG, root / DEFAULT_SCALER, root / "docs/signal_schema.json")
+    batch = preprocessor.training_input(record["ecg_id"], split_directory=root / "splits",
+                                         signal_directory=sample.parent)
     start = config["window_start_sample"]
-    if type(start) is not int or not 0 <= start <= signal.shape[0] - context:
-        raise ModelProbeError("Window boundaries exceed the source record")
-    x = torch.from_numpy(signal[start:start + context].T.copy()).float().unsqueeze(0).to(device)
-    mask = torch.ones((1, context), dtype=torch.long, device=device)
-    target = torch.tensor([record["label_vector"]], dtype=torch.float32, device=device)
+    if start != 0 or context != preprocessor.config["window_samples"]:
+        raise ModelProbeError("Probe must use the complete shared V1 window policy")
+    inputs = batch.torch_inputs(device)
+    x, mask = inputs["x_enc"], inputs["input_mask"]
+    target = torch.tensor([record["label_vector"]] * len(batch.starts), dtype=torch.float32, device=device)
 
     model_kwargs = {
         "task_name": "classification", "n_channels": 12, "num_class": 5,
@@ -157,9 +157,11 @@ def run_probe(root: Path, device_name: str = "cuda", target_override: list[str] 
     optimizer.zero_grad(set_to_none=True)
     outputs = model(x_enc=x, input_mask=mask)
     logits = outputs.logits
-    if tuple(logits.shape) != (1, 5) or not torch.isfinite(logits).all():
-        raise ModelProbeError("Expected finite logits of shape [1, 5]")
-    loss = nn.BCEWithLogitsLoss()(logits, target)
+    if tuple(logits.shape) != (len(batch.starts), 5) or not torch.isfinite(logits).all():
+        raise ModelProbeError("Expected finite per-window logits of shape [2, 5]")
+    weights = torch.tensor(batch.valid_samples, dtype=torch.float32, device=device)
+    per_window_loss = nn.BCEWithLogitsLoss(reduction="none")(logits, target).mean(dim=1)
+    loss = (per_window_loss * weights).sum() / weights.sum()
     if not torch.isfinite(loss):
         raise ModelProbeError("Loss is not finite")
     loss.backward()
@@ -192,6 +194,13 @@ def run_probe(root: Path, device_name: str = "cuda", target_override: list[str] 
     adapter_dir = root / "artifacts" / "moment-probe" / "smoke-adapter"
     # Base embedding weights are frozen and hash-verified; no vocabulary lookup is needed.
     model.save_pretrained(adapter_dir, safe_serialization=True, save_embedding_layers=False)
+    # Serving must load these exact fitted statistics alongside this adapter.
+    import shutil
+
+    for source, name in ((root / DEFAULT_CONFIG, "preprocessing.json"),
+                         (root / DEFAULT_SCALER, "scaler.json"),
+                         (root / "docs/signal_schema.json", "signal_schema.json")):
+        shutil.copyfile(source, adapter_dir / name)
     report = {
         "status": "passed", "purpose": "one-step compatibility probe; no quality claim",
         "executed_at_utc": datetime.now(timezone.utc).isoformat(),
@@ -206,7 +215,12 @@ def run_probe(root: Path, device_name: str = "cuda", target_override: list[str] 
         "cuda_runtime": torch.version.cuda,
         "input": {"shape": list(x.shape), "ecg_id": record["ecg_id"], "patient_id": record["patient_id"],
                   "split": record["split"], "strat_fold": record["strat_fold"], "start_sample": start,
-                  "end_sample": start + context, "source_npz_sha256": signal_check["npz_sha256"], "label_order": list(LABEL_ORDER)},
+                  "window_starts": list(batch.starts), "valid_samples": list(batch.valid_samples),
+                  "source_npz_sha256": sha256(sample.with_suffix(".npz")), "label_order": list(LABEL_ORDER)},
+        "preprocessing": {"policy_version": preprocessor.config["policy_version"],
+                          "scaler_sha256": batch.scaler_sha256, "scaler_file_sha256": sha256(root / DEFAULT_SCALER),
+                          "config_sha256": sha256(root / DEFAULT_CONFIG),
+                          "code_sha256": sha256(Path(__file__).with_name("preprocessing.py"))},
         "context_samples": context, "internal_patch_samples": checkpoint_config["patch_len"],
         "internal_patch_count": context // checkpoint_config["patch_len"],
         "targets": targets, "lora": {"rank": config["lora_rank"], "alpha": config["lora_alpha"], "modules_to_save": ["moment.head"]},
@@ -224,7 +238,7 @@ def run_probe(root: Path, device_name: str = "cuda", target_override: list[str] 
         "license": config["license"], "license_source": config["license_source"],
         "pretraining_dataset": config["pretraining_dataset"], "ptbxl_pretraining_overlap": config["ptbxl_pretraining_overlap"],
         "integration_note": "A thin wrapper supplies PEFT's dict config while MOMENT keeps its Namespace config.",
-        "limitations": ["Single training record, single 512-sample window, single optimizer step", "No model selection or final test evaluation", "Window inherits record label", "PTB-XL pretraining overlap is not verified absent"],
+        "limitations": ["Single training record, two windows, single optimizer step", "No model selection or final test evaluation", "Window inherits record label; no window-level clinical annotation", "PTB-XL pretraining overlap is not verified absent", "MOMENT internal RevIN remains enabled; its classification head is not fully padding-invariant"],
     }
     write_json(reports / "model_probe.json", report)
     return report

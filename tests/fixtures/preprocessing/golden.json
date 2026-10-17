@@ -1,0 +1,47 @@
+{
+  "fixture_type": "synthetic_not_patient_data",
+  "policy_version": "ptbxl-moment-preprocessing-v1",
+  "formula": "offset=lead/8-0.5; unit=(lead+1)/32; fit=offset +/- 2*unit; input=offset+((time+lead)%9-4)*unit",
+  "starts": [
+    0,
+    512
+  ],
+  "valid_samples": [
+    512,
+    488
+  ],
+  "padding_samples": [
+    0,
+    24
+  ],
+  "aggregation_logits": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      1.0986122886681098,
+      -1.0986122886681098,
+      0,
+      1000,
+      -1000
+    ]
+  ],
+  "expected_record_probabilities": [
+    0.622,
+    0.378,
+    0.5,
+    0.744,
+    0.256
+  ],
+  "sha256": {
+    "fit.npz": "02d315c2834b5014b756e20052e4be54bf11a5bf1b86cf81cb62fbfd5ea9694f",
+    "fit.json": "3d4e3da077849e05b5ec00f6719d9e6cb947822635bc4a123521a5478e1fc41b",
+    "input.npz": "8bfd238f8ec1f15c01a9f71aa673f1c15180fc5dd1f2c6e0de90656dbfdb7d30",
+    "input.json": "e3c799a922f1e7904ad4f7ed10cc86810135f9a8c7ab114c29711a9dbfce2522",
+    "expected.npz": "1417ea64c797a54162e465ab0399f7178cce2d0d44a05f96b273f7b6af5c35cb"
+  }
+}

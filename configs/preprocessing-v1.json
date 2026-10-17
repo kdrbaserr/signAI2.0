@@ -1,0 +1,18 @@
+{
+  "policy_version": "ptbxl-moment-preprocessing-v1",
+  "input_samples": 1000,
+  "sampling_rate_hz": 100,
+  "channels": ["I", "II", "III", "AVR", "AVL", "AVF", "V1", "V2", "V3", "V4", "V5", "V6"],
+  "window_samples": 512,
+  "stride_samples": 512,
+  "tail_policy": "right_pad",
+  "padding_value_after_scaling": 0.0,
+  "mask_convention": "1=observed,0=padding",
+  "normalization": "train_per_channel_population_zscore",
+  "minimum_scale": 1e-8,
+  "output_dtype": "float32",
+  "output_layout": "window,channel,time",
+  "aggregation": "valid_sample_weighted_mean_of_sigmoid",
+  "label_order": ["NORM", "MI", "STTC", "CD", "HYP"],
+  "moment_internal_normalization": "keep_pretrained_revin"
+}

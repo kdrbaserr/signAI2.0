@@ -153,7 +153,7 @@ def read_npz(path: Path, schema: dict[str, Any]) -> tuple[np.ndarray, str]:
     return signal, hashlib.sha256(payload).hexdigest()
 
 
-def validate_signal(npz_path: Path, metadata_path: Path, schema_path: Path) -> dict[str, Any]:
+def load_validated_signal(npz_path: Path, metadata_path: Path, schema_path: Path) -> tuple[np.ndarray, dict[str, Any]]:
     """Never writes, rescales, reorders, clips or resamples either input file."""
     schema = load_signal_schema(schema_path)
     metadata = read_json(metadata_path, schema["max_json_bytes"])
@@ -166,7 +166,7 @@ def validate_signal(npz_path: Path, metadata_path: Path, schema_path: Path) -> d
     peaks = np.max(np.abs(signal), axis=0)
     if (peaks > schema["max_abs_amplitude_mv"]).any():
         reject("E_AMPLITUDE", "Absolute amplitude exceeds the project's 20 mV guardrail")
-    return {
+    report = {
         "valid": True, "record_id": metadata["record_id"],
         "policy_version": schema["policy_version"], "shape": list(signal.shape),
         "dtype": signal.dtype.name, "axis_order": metadata["axis_order"],
@@ -175,6 +175,12 @@ def validate_signal(npz_path: Path, metadata_path: Path, schema_path: Path) -> d
         "npz_sha256": digest, "metadata_sha256": sha256(metadata_path),
         "signal_schema_sha256": sha256(schema_path), "input_files_modified": False,
     }
+    return signal, report
+
+
+def validate_signal(npz_path: Path, metadata_path: Path, schema_path: Path) -> dict[str, Any]:
+    """Validate the same bytes returned by the shared train/serve reader."""
+    return load_validated_signal(npz_path, metadata_path, schema_path)[1]
 
 
 def main() -> None:

@@ -4,3 +4,4 @@
 *.lock text eol=lf
 *.md text eol=lf
 *.ps1 text eol=lf
+tests/fixtures/preprocessing/*.json text eol=lf

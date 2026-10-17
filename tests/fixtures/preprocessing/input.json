@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ptbxl_1_0_3_00002",
+  "axis_order": [
+    "time",
+    "channel"
+  ],
+  "channels": [
+    "I",
+    "II",
+    "III",
+    "AVR",
+    "AVL",
+    "AVF",
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5",
+    "V6"
+  ],
+  "unit": "mV",
+  "sampling_rate_hz": 100,
+  "duration_seconds": 10.0,
+  "npz_sha256": "8bfd238f8ec1f15c01a9f71aa673f1c15180fc5dd1f2c6e0de90656dbfdb7d30",
+  "source": {
+    "dataset_version": "1.0.3",
+    "ecg_id": 2
+  }
+}
