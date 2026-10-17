@@ -6,6 +6,8 @@ __pycache__/
 .uv-cache/
 .uv-python/
 .pytest_cache/
+.dvc-lab/
+.dvc-remote/
 .coverage
 htmlcov/
 build/
@@ -24,7 +26,10 @@ credentials/
 service-account*.json
 
 # Datasets, model artifacts, experiment output and videos
-data/
+data/**
+!data/**/
+!data/**/*.dvc
+!data/**/.gitignore
 artifacts/
 models/
 checkpoints/

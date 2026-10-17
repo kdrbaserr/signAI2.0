@@ -43,14 +43,22 @@ Bağımlılık değişikliği yaparken `uv add <paket>` veya `uv add --dev <pake
 Repo/paket adı `signai-2.0`; mevcut çalışma klasörü `signAI2.0` korunur.
 Yerel Git deposu kullanılır. Uzak GitHub deposu henüz tanımlı değildir.
 
+## DVC ile ham veri sürümleme
+
+PTB-XL 1.0.3 metadata + üç örnek EKG ve ham veri manifesti DVC ile izlenir.
+Kurulum, clone/pull deneyi, hata ayrımı ve öğrenme notları:
+[DVC çalışma rehberi](docs/learning-log/day-02-dvc.md).
+Gerçek çalışma sonuçları: [DVC doğrulaması](docs/verification-dvc.md).
+
 ## Commit öncesi
 
 ```powershell
 git add .
-python scripts/check_repository.py
+python scripts/check_repository.py --history
 git diff --cached
 ```
 
 Kontrol betiği index'teki ignore kapsamındaki dosyaları ve 10 MiB üstü dosyaları
-reddeder. Manuel çalıştırılır; otomatik hook değildir ve içerik tabanlı secret
+reddeder. `--history` tüm yerel referanslardan erişilen geçmiş nesneleri de denetler;
+10 MiB üstü blob ve ham veri payload'u arar. Manuel çalıştırılır; otomatik hook değildir ve içerik tabanlı secret
 taraması yapmaz. Diff'i okuyup ardından commit yap.

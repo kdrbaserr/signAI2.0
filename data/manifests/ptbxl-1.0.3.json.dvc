@@ -1,0 +1,5 @@
+outs:
+- md5: 045460b1b3cadb1cffd27f2e61d236c9
+  size: 2068
+  hash: md5
+  path: ptbxl-1.0.3.json
